@@ -1,4 +1,8 @@
 package com.edu.tery.linkedlist;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * @author Create by tery007
  * @date   2017年7月30日
@@ -10,8 +14,16 @@ public class LinkedListUtil {
 	 * 把该链表逆置
 	 * 例如链表为 3->7->10 , 逆置后变为  10->7->3
 	 */
-	public  void reverse(){		
-		
+	public  void reverse(LinkedList<Integer> link){	
+		Stack<Integer> stack=new Stack<>();
+		for(int i=0;i<link.size();i++){
+			if(link.get(i)!=null){
+				stack.push(link.remove(i));
+			}
+		}
+		while(!stack.isEmpty()){
+			link.add(stack.pop());
+		}
 	}
 	
 	/**
@@ -20,8 +32,12 @@ public class LinkedListUtil {
 	 * 如果list = 2->5->7->8->10 ,删除以后的值为7,8,10
 
 	 */
-	public  void removeFirstHalf(){
-		
+	public  void removeFirstHalf(LinkedList<Integer> link){
+		for (int i = 0; i < link.size()/2; i++) {
+			if(link.get(i)!=null){
+				link.remove(i);
+			}
+		}
 	}
 	
 	/**
@@ -40,7 +56,8 @@ public class LinkedListUtil {
 	 * 返回的结果应该是[101,301,401,601]  
 	 * @param list
 	 */
-	public  int[] getElements(LinkedList list){
+	public  int[] getElements(MyLinkedList list){
+		
 		return null;
 	}
 	
@@ -51,7 +68,7 @@ public class LinkedListUtil {
 	 * @param list
 	 */
 	
-	public  void subtract(LinkedList list){
+	public  void subtract(MyLinkedList list){
 		
 	}
 	
@@ -78,7 +95,7 @@ public class LinkedListUtil {
 	 * 现要求生成新链表C，其元素为当前链表和list中元素的交集，且表C中的元素有依值递增有序排列
 	 * @param list
 	 */
-	public  LinkedList intersection( LinkedList list){
+	public  MyLinkedList intersection( MyLinkedList list){
 		return null;
 	}
 }
